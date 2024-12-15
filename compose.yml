@@ -1,0 +1,52 @@
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: register_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d register_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  register-service:
+    build:
+      context: ./register-service
+    environment:
+      DATABASE_URL: postgresql://user:password@db/register_db
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+
+  auth-service:
+    build:
+      context: ./auth-service
+    environment:
+      DATABASE_URL: postgresql://user:password@db/register_db
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8001:8000"
+
+  messaging-service:
+    build:
+      context: ./messaging-service
+    environment:
+      DATABASE_URL: postgresql://user:password@db/register_db
+    depends_on:
+      db:
+        condition: service_healthy
+      auth-service:
+        condition: service_started
+    ports:
+      - "8002:8000"
+
+volumes:
+  postgres_data:
