@@ -120,48 +120,48 @@ Dependencias: PostgreSQL
 
 A continuación se muestra los servicios funcionando correctamente luego de ejecutar nuestro comando.
 
-![alt text](image.png)
+![alt text](/doc/image.png)
 
 Ahora procedamos a probar nuestro endpoints para simular el ejemplo.
 
 Registro de Usuario "uni" 
 
-![alt text](image-1.png)
+![alt text](/doc/image-1.png)
 
 Autenticación exitosa de "uni"
 
-![alt text](image-2.png)
+![alt text](/doc/image-2.png)
 
 Intento de autenticación fallido de "fc", pues no registramos a ningun usuario fc.
 
-![alt text](image-3.png)
+![alt text](/doc/image-3.png)
 
 Así que primero registremoslo, registro de usuario "fc" 
 
-![alt text](image-4.png)
+![alt text](/doc/image-4.png)
 
 Finalmente procedamos a probar nuestro servicio de envío y lectura de mensajes.
 
 
 Mensaje 1 desde "uni"
 
-![alt text](image-5.png)
+![alt text](/doc/image-5.png)
 
 Mensaje 2 desde "uni"
 
-![alt text](image-6.png)
+![alt text](/doc/image-6.png)
 
 Mensaje 3 desde "fc"
 
-![alt text](image-8.png)
+![alt text](/doc/image-8.png)
 
 Intento fallido desde "faua" , el cual nos devolverá usuario no registrado, pues no lo registramos previamente:
 
-![alt text](image-9.png)
+![alt text](/doc/image-9.png)
 
 Finalmente nuestro último endpoint para hacer lectura de los mensajes de "uni" 
 
-![alt text](image-12.png)
+![alt text](/doc/image-12.png)
 
 El cual contiene los mensajes previamente escritos
 
