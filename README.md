@@ -86,7 +86,7 @@ El sistema expone tres servicios en los siguientes puertos, que se definieron en
 
 Se crearon dos tablas para manejar a los usuarios y sus mensajes
 
-![alt text](image-10.png)
+![alt text](/doc/image-10.png)
 
 
 ### Servicio de Registro
